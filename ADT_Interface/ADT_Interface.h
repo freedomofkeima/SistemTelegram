@@ -1,0 +1,51 @@
+/* NIM/Nama :   1. Antonius Perdana Renardy / 13211143
+                2. Daniel / 13511068
+                3. Dicky Cahyadi / 13211110
+                4. Iskandar Setiadi / 13511073
+                5. Michael Aditya Mursalim / 13211066   */
+/* Nama file : ADT_Interface.h */
+/* Topik : ADT Sistem Telegram */
+/* Tanggal : November 2012 */
+/* Deskripsi : Membuat Tugas Besar IF2030 - Sistem Telegram */
+
+#ifndef adt_Interface_h
+#define adt_Interface_h
+#include "../adt_boolean.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <math.h>
+#include <fcntl.h>
+#include <time.h>
+#include <dirent.h>
+#include <ctype.h>
+
+
+/* *** ADT INTERFACE *** */
+void DelayWaktu(long long x);
+/* { I.S. : x >= 0 } */
+/* { F.S. : Untuk membuat delay waktu selama x milidetik } */
+
+void Opening();
+/* { F.S. : Mencetak menu pembuka interface } */
+
+void MainMenu();
+/* { F.S. : Menampilkan menu utama dari interface } */
+
+void ModePenulisan();
+/* { F.S. : Menampilkan Mode A - Mode Penulisan } */
+
+void ModePengiriman();
+/* { F.S. : Menampilkan Mode B - Mode Pengiriman } */
+
+void ModePenerimaan();
+/* { F.S. : Menampilkan Mode C - Mode Penerimaan } */
+
+void ModePengaturan();
+/* { F.S. : Menampilkan Mode D - Mode Pengaturan } */
+
+void Closing();
+/* { F.S. : Mencetak menu penutup interface } */
+
+#endif
+/* All Rights Reserved 2012 */

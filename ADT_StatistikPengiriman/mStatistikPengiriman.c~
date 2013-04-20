@@ -1,0 +1,69 @@
+/* NIM/Nama :   1. Antonius Perdana Renardy / 13211143
+                2. Daniel / 13511068
+                3. Dicky Cahyadi / 13211110
+                4. Iskandar Setiadi / 13511073
+                5. Michael Aditya Mursalim / 13211066   */
+/* Nama file : mStatistikPengiriman.c */
+/* Topik : ADT Sistem Telegram */
+/* Tanggal : November 2012 */
+/* Deskripsi : Membuat Tugas Besar IF2030 - Sistem Telegram */
+
+/* Driver File ADT Load File */
+#include "../ADT_String/ADT_String.c"
+#include "ADT_StatistikPengiriman.h" //comment this later
+
+#include "../adt_boolean.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <math.h>
+#include <fcntl.h>
+#include <time.h>
+#include <dirent.h>
+#include <ctype.h>
+
+int main()
+{
+	/* *** Kamus *** */
+	skaddress p;
+	StatKirim s;
+	boolean tampung;
+    int i; //indeks untuk traversal
+
+	/* *** Algoritma *** */
+	/* Alokasi elemen statistik baru, Waktu : "2012-12-12 12", Pesan yang telah dikirim = 1 */
+	p = SKAlokasi("2012121212\0",1);
+	printf("Apakah alokasi berhasil? %d\n",p!=Nil);
+	printf("Waktu(p) = %s\n",Waktu(p));
+	printf("JumlahPesan(p) = %d\n",JumlahPesan(p));
+	printf("p didealokasi\n");
+	SKDealokasi(&p);
+	printf("nilai p = %d\n",p);
+	/* Membuat list Statistik Pengiriman baru */
+	SKCreateList(&s);
+	printf("Apakah list kosong? %d\n",SKIsListEmpty(s));
+	/* Menambahkan elemen list Statistik Pengiriman */
+	SKInsVFirst(&s,"2012121213\0",10);
+	SKInsVFirst(&s,"2012121214\0",5);
+	SKInsVLast(&s,"2012121215\0",1);
+	printf("Isi list sekarang : \n");
+	p=First(s);
+	while (p!=Nil)
+	{
+        for (i=0;i<=3;i++)
+            printf("%c",Waktu(p)[i]);
+        printf("-");
+        for (i=4;i<=5;i++)
+            printf("%c",Waktu(p)[i]);
+        printf("-");
+        for (i=6;i<=7;i++)
+            printf("%c",Waktu(p)[i]);
+        printf(" ");
+        for (i=8;i<=9;i++)
+            printf("%c",Waktu(p)[i]);
+        printf("  %d pesan\n",JumlahPesan(p));
+		p = Next(p);
+	}
+	return 0;
+}
+/* All Rights Reserved 2012 */

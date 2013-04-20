@@ -1,0 +1,4 @@
+gcc -o <nama file> mListStatistik.c ADT_String.c ADT_ListStatistik.c
+
+catatan : BERSIH MAS BROH
+	: driver masih kosong, lanjut dlu kompile yg laen gw

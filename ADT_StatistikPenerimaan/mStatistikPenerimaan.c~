@@ -1,0 +1,58 @@
+/* NIM/Nama :   1. Antonius Perdana Renardy / 13211143
+                2. Daniel / 13511068
+                3. Dicky Cahyadi / 13211110
+                4. Iskandar Setiadi / 13511073
+                5. Michael Aditya Mursalim / 13211066   */
+/* Nama file : mStatistikPenerimaan.c */
+/* Topik : ADT Sistem Telegram */
+/* Tanggal : November 2012 */
+/* Deskripsi : Membuat Tugas Besar IF2030 - Sistem Telegram */
+
+/* Driver File ADT Load File */
+#include "../ADT_String/ADT_String.c"
+#include "ADT_StatistikPenerimaan.h" //comment this later
+
+#include "../adt_boolean.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <math.h>
+#include <fcntl.h>
+#include <time.h>
+#include <dirent.h>
+#include <ctype.h>
+
+int main()
+{
+	/** Kamus **/
+	staddress p;
+	StatTerima s;
+	boolean tampung;
+
+	/** Algoritma **/
+	/* Alokasi elemen statistik baru, Nama Penerima : "Anonim", Pesan sudah dibaca = 0, Pesan diterima = 1 */
+	p = STAlokasi("Anonim\0",0,1);
+	printf("Apakah alokasi berhasil? %d\n",p!=Nil);
+	printf("Penerima(p) = %s\n",Penerima(p));
+	printf("SudahBaca(p) = %d\n",SudahBaca(p));
+	printf("TotalTerima(p) = %d\n",TotalTerima(p));
+	printf("p didealokasi\n");
+	STDealokasi(&p);
+	printf("nilai p = %d\n",p);
+	/* Membuat list Statistik Terima baru */
+	STCreateList(&s);
+	printf("Apakah list kosong? %d\n",STIsListEmpty(s));
+	/* Menambahkan elemen list Statistik Terima */
+	STInsVFirst(&s,"Tes1\0",10,20);
+	STInsVFirst(&s,"Tes2\0",5,6);
+	STInsVLast(&s,"Tes3\0",1,2);
+	printf("Isi list sekarang : \n");
+	p=First(s);
+	while (p!=Nil)
+	{
+		printf("%s %d/%d pesan\n",Penerima(p),SudahBaca(p),TotalTerima(p));
+		p = Next(p);
+	}
+	return 0;
+}
+/* All Rights Reserved 2012 */
